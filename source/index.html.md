@@ -8,18 +8,11 @@ language_tabs:
   - python: Python
 
 toc_footers:
-  - <a href='https://www.travelpayouts.com/'>Sign Up for a Developer Token</a>
+  - <a href='https://moeco.io'>About Moeco</a>
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
-  - dataapiv1
-  - dataapiv2
-  - dataapijson
-  - searchapi
-  - hotelsdata
-  - hotelstatdata
-  - hotelssearchapi
-  - hotelapierrors
+  - errors
 
 search: true
 ---
