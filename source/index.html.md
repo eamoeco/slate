@@ -1,4 +1,30 @@
-# Moeco API v0.1
+---
+title: API Reference
+
+language_tabs:
+  - shell: cURL
+  - ruby: Ruby
+  - php: PHP
+  - python: Python
+
+toc_footers:
+  - <a href='https://www.travelpayouts.com/'>Sign Up for a Developer Token</a>
+  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
+
+includes:
+  - dataapiv1
+  - dataapiv2
+  - dataapijson
+  - searchapi
+  - hotelsdata
+  - hotelstatdata
+  - hotelssearchapi
+  - hotelapierrors
+
+search: true
+---
+
+# Moeco API
 
 The API is built on the basis of the HTTP protocol with the exchange of data in the JSON format. Communication between the server and the client is carried out through the interface end-points.
 
