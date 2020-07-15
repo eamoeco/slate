@@ -39,11 +39,13 @@ Parameter | Type | Default | Description
 --------- | ------- | ----------- | -----------
 authorization | string | - | Authorization token
 
+You should use authorization token in all requests that you send.
+
 ## Verify authorization
 
 POST /api/auth
 
-Return a access token for other API endpoints.
+Return an access token for other API endpoints.
 
 > Example of a request:
 
