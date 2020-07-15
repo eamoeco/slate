@@ -43,6 +43,8 @@ authorization | string | - | Authorization token
 
 POST /api/auth
 
+Return a access token for other API endpoints.
+
 > Example of a request:
 
 ```shell
@@ -95,6 +97,8 @@ Parameter |Description
 ## Package list
 
 GET /api/package
+
+Return a package with information about alerts, devices and transactions.
 
 > Example of a request:
 
@@ -155,9 +159,11 @@ Parameter |Description
  transactions | The transaction data
  
  
-## Packages historical transactions by Shipment Id
+## Packages historical transactions by shipment ID
 
 GET /api/device/search
+
+Return a specific package by shipment ID
 
 > Example of a request:
 
@@ -221,6 +227,8 @@ Parameter |Description
 
 GET /api/alert
 
+Return information about alerts settings
+
 > Example of a request:
 
 ```shell
@@ -278,6 +286,8 @@ Parameter |Description
 ## Packages transactions
 
 GET /api/transactions
+
+Return data from sensors
 
 > Example of a request:
 
