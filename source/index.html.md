@@ -6,7 +6,6 @@ language_tabs:
 
 toc_footers:
   - <a href='https://moeco.io'>About Moeco</a>
-  - <a href='https://moecodocs.zendesk.com/hc/en-us'>Moeco Documentation</a>
 
 includes:
   - errors
