@@ -132,22 +132,22 @@ GET `https://demo-dashboard.moeco.io/api/auth`
 }
 ```
 
-Field | Description
+Field |Description
 --------- | -----------
- id | Alert ID
- user_id | User ID
- token_type | Token type (bearer)
- access_token | Access token
+ id | The token ID
+ user_id | The user ID
+ token_type | The token type (bearer)
+ access_token | The access token value
  expires_at | Date and time when the token will expire
- created_at | Date and time when the token was create
- updated_at | Date and time when the token was updated
+ created_at | Date and time when the token was created
+ updated_at | Not used
  ip_address | The user IP address
 
-## Package list
+## Shipment list
 
-GET /api/package
+GET /api/package 
 
-Return packages with information about alerts, devices and transactions.
+Returns list of shipments with basic information about sensors, transactions and alerts.
 
 > Example of a request:
 
@@ -199,20 +199,20 @@ Field |Description
  device_hash | The sensor hash
  device_uid | The sensor UID
  device_group_uid | The sensor Group UID
- status | The package status (1 - active, 0 - not active)
+ status | The shipment status (1 - active, 0 - not active)
  destination | TBD
- created_at | Date and time when the package was create
- updated_at | Date and time when the package was updated
+ created_at | Date and time when the shipment was create
+ updated_at | Date and time when the shipment was updated
  device_tags | The list of sensor tags
- alert_events | The list of alerts for this packages
+ alert_events | The list of alerts for this shipments
  transactions | The transaction data
  
  
-## Packages historical transactions by shipment ID
+## Shipments historical transactions by shipment ID
 
 GET /api/device/search
 
-Return a specific package by shipment ID
+Returns the single shipments with basic information about sensors, transactions and alerts by its ID.
 
 > Example of a request:
 
@@ -260,17 +260,17 @@ term | - | Shipment ID
 
 Field |Description
 --------- | -----------
- id | Package ID
+ id | The shipment ID
  user_id | The user ID
  device_hash | The sensor hash
  device_uid | The sensor UID
  device_group_uid | The sensor Group UID
- status | The package status (1 - Init, 2 - On the way, 3 - Delivered, 4 - Lost, 5 - Canceled, 6 - Archived)
+ status | The shipment status (1 - Init, 2 - On the way, 3 - Delivered, 4 - Lost, 5 - Canceled, 6 - Archived)
  destination | TBD
  created_at | Date and time when the transaction was create
  updated_at | Date and time when the transaction was updated
  device_tags | The list of sensor tags
- alert_events | The list of alerts for this packages
+ alert_events | The list of alerts for this shipments
  transactions | The transaction data
 
 ## Alerts list
@@ -322,7 +322,7 @@ __offset | - | Offset
 
 Field |Description
 --------- | -----------
- id | Package ID
+ id | The shipment ID
  user_id | The user ID
  name | The alert name
  sensor_name | The sensor name
@@ -334,7 +334,7 @@ Field |Description
  created_at | Date and time when the alert was create
  updated_at | Date and time when the alert was updated
 
-## Packages transactions
+## Shipments transactions
 
 GET /api/transactions
 
@@ -401,8 +401,8 @@ Field |Description
 --------- | -----------
  id | The transaction ID
  source | The data in transaction
- source.device_hash | The device hash
- source.timestamp | The last time when the package transmitted status
+ source.device_hash | The sensor hash
+ source.timestamp | The last time when the shipment transmitted status
  source.blockchain_id | The blockchain id 
  source.location | The location where the sensor was detected
  source.location.countryCode | The country code where sensor was detected
