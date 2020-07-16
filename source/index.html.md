@@ -5,7 +5,6 @@ language_tabs:
   - shell: cURL
 
 toc_footers:
-  - <a href='https://moeco.io'>About Moeco</a>
 
 includes:
   - errors
