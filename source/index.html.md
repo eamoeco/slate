@@ -34,13 +34,13 @@ In order for the data to appear in response to requests for transactions, invoic
 
 ## Main request parameters
 
-Parameter | Type | Default | Description
---------- | ------- | ----------- | -----------
-authorization | string | - | Authorization token
-
 You should use authorization token in all requests that you send.
 
-## Verify authorization
+Header | Type | Default | Description | Example
+--------- | ------- | ----------- | ----------- | -----------
+authorization | string | - | Authorization token | bearer 1dbb71a55488a16f60608ffece8777d8
+
+## Authorization
 
 POST /api/auth
 
@@ -58,7 +58,7 @@ POST `https://demo-dashboard.moeco.ninja/api/auth`
 
 ### Request parameters
 
-Parameter | Default | Description
+Payload | Default | Description
 --------- | ------- | -----------
 email| - | The user email address
 password| - | The user password
@@ -84,7 +84,55 @@ password| - | The user password
 }
 ```
 
-Parameter |Description
+Field |Description
+--------- | -----------
+ id | The token ID
+ user_id | The user ID
+ token_type | The token type (bearer)
+ access_token | The access token value
+ expires_at | Date and time when the token will expire
+ created_at | Date and time when the token was create
+ updated_at | Date and time when the token was updated
+ ip_address | The user IP address
+
+## Verify authorization
+
+GET /api/auth
+
+Verify the access token.
+
+> Example of a request:
+
+```shell
+curl -X GET "https://demo-dashboard.moeco.ninja/api/auth" -H  "accept: application/json" -H  "authorization: Bearer 1dbb71a55488a16f60608ffece8777d8"
+```
+
+### Request
+
+GET `https://demo-dashboard.moeco.ninja/api/auth`
+
+### Response
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 2523,
+      "token_type": "bearer",
+      "user_id": 1,
+      "expires_at": "2020-08-12T12:29:20.408Z",
+      "created_at": "2020-07-13T12:29:20.408Z",
+      "updated_at": "2020-07-13T12:29:20.408Z",
+      "access_token": "1dbb71a55488a16f60608ffece8777d8",
+      "ip_address": null
+    }
+  ]
+}
+```
+
+Field | Description
 --------- | -----------
  id | Alert ID
  user_id | User ID
@@ -99,7 +147,7 @@ Parameter |Description
 
 GET /api/package
 
-Return a package with information about alerts, devices and transactions.
+Return packages with information about alerts, devices and transactions.
 
 > Example of a request:
 
@@ -109,15 +157,15 @@ curl -X GET "https://demo-dashboard.moeco.ninja/api/package?__count=20&__offset=
 
 ### Request
 
-GET `https://demo-dashboard.moeco.io/api/package?count=20&offset=0&only_active=true`
+GET `https://demo-dashboard.moeco.io/api/package?____count=20&____offset=0&only_active=true`
 
 ### Request parameters
 
-Parameter | Default | Description
+Query | Default | Description
 --------- | ------- | -----------
-count | 20 | Necessary rows count
-offset | - | Offset
-only_active| - | Get packages from actived sensors 
+__count | 20 | Necessary rows count
+__offset | - | Offset
+only_active | - | Get packages from actived sensors 
 
 ### Response
 
@@ -144,7 +192,7 @@ only_active| - | Get packages from actived sensors
 }
 ```
 
-Parameter |Description
+Field |Description
 --------- | -----------
  id | Package ID
  user_id | The user ID
@@ -169,20 +217,20 @@ Return a specific package by shipment ID
 > Example of a request:
 
 ```shell
-curl -X GET "https://demo-dashboard.moeco.io/api/search?&__order=updated_at+desc&__count=100&__offset=0&term=12345" -H "accept: application/json" -H "authorization: bearer 1dbb71a55488a16f60608ffece8777d8"
+curl -X GET "https://demo-dashboard.moeco.io/api/search?__order=updated_at+desc&__count=100&__offset=0&term=12345" -H "accept: application/json" -H "authorization: bearer 1dbb71a55488a16f60608ffece8777d8"
 ```
 
 ### Request
 
-GET `https://demo-dashboard.moeco.io/api/search?order=updated_at+desc&count=100&offset=0&term=12345`
+GET `https://demo-dashboard.moeco.io/api/search?__order=updated_at+desc&__count=100&__offset=0&term=12345`
 
 ### Request parameters
 
-Parameter | Default | Description
+Query | Default | Description
 --------- | ------- | -----------
-order | - | Query order type
-count | 20 | Necessary rows count
-offset | - | Offset
+__order | - | Query order type
+__count | 20 | Necessary rows count
+__offset | - | Offset
 term | - | Shipment ID
 
 ### Response
@@ -209,7 +257,8 @@ term | - | Shipment ID
   ]
 }
 ```
-Parameter |Description
+
+Field |Description
 --------- | -----------
  id | Package ID
  user_id | The user ID
@@ -233,7 +282,7 @@ Return information about alerts settings
 > Example of a request:
 
 ```shell
-curl -X GET "https://demo-dashboard.moeco.io/api/alert?count=20&offset=0" -H "accept: application/json" -H "authorization: bearer 1dbb71a55488a16f60608ffece8777d8"
+curl -X GET "https://demo-dashboard.moeco.io/api/alert?__count=20&__offset=0" -H "accept: application/json" -H "authorization: bearer 1dbb71a55488a16f60608ffece8777d8"
 ```
 
 ### Request
@@ -242,10 +291,10 @@ GET `https://demo-dashboard.moeco.io/api/alert?count=20&offset=0`
 
 ### Request parameters
 
-Parameter | Default | Description
+Query | Default | Description
 --------- | ------- | -----------
-count | 20 | Necessary rows count
-offset | - | Offset
+__count | 20 | Necessary rows count
+__offset | - | Offset
 
 ### Response
 
@@ -270,7 +319,8 @@ offset | - | Offset
   ]
 }
 ```
-Parameter |Description
+
+Field |Description
 --------- | -----------
  id | Package ID
  user_id | The user ID
@@ -293,19 +343,19 @@ Return data from sensors
 > Example of a request:
 
 ```shell
-curl -X GET "https://demo-dashboard.moeco.io/api/transactions?count=20&offset=0" -H "accept: application/json" -H "authorization: bearer eb2427956185ea8b744fe1473eec8e16"
+curl -X GET "https://demo-dashboard.moeco.io/api/transactions?__count=20&__offset=0" -H "accept: application/json" -H "authorization: bearer eb2427956185ea8b744fe1473eec8e16"
 ```
 
 ### Request
 
-GET `https://demo-dashboard.moeco.io/api/transactions?count=20&offset=0`
+GET `https://demo-dashboard.moeco.io/api/transactions?__count=20&__offset=0`
 
 ### Request parameters
 
-Parameter | Default | Description
+Query | Default | Description
 --------- | ------- | -----------
-count | 20 | Necessary rows count
-offset | - | Offset
+__count | 20 | Necessary rows count
+__offset | - | Offset
 
 ### Response
 
@@ -346,7 +396,8 @@ offset | - | Offset
   ]
 }
 ```
-Parameter |Description
+
+Field |Description
 --------- | -----------
  id | The transaction ID
  source | The data in transaction
