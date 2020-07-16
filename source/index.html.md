@@ -49,18 +49,18 @@ Return an access token for other API endpoints.
 > Example of a request:
 
 ```shell
-curl -X POST "https://demo-dashboard.moeco.ninja/api/auth" -H "accept: application/json" -H "Content-Type: application/json" -d "{ "email": "test@me.com", "password": "123"}"
+curl -X POST "https://demo-dashboard.moeco.io/api/auth" -H "accept: application/json" -H "Content-Type: application/json" -d "{ "email": "test@me.com", "password": "123"}"
 ```
 
 ### Request
 
-POST `https://demo-dashboard.moeco.ninja/api/auth`
+POST `https://demo-dashboard.moeco.io/api/auth`
 
 ### Request parameters
 
 Payload | Default | Description
 --------- | ------- | -----------
-email| - | The user email address
+email| - | The user login
 password| - | The user password
 
 ### Response
@@ -91,8 +91,8 @@ Field |Description
  token_type | The token type (bearer)
  access_token | The access token value
  expires_at | Date and time when the token will expire
- created_at | Date and time when the token was create
- updated_at | Date and time when the token was updated
+ created_at | Date and time when the token was created
+ updated_at | Not used
  ip_address | The user IP address
 
 ## Verify authorization
@@ -104,12 +104,12 @@ Verify the access token.
 > Example of a request:
 
 ```shell
-curl -X GET "https://demo-dashboard.moeco.ninja/api/auth" -H  "accept: application/json" -H  "authorization: Bearer 1dbb71a55488a16f60608ffece8777d8"
+curl -X GET "https://demo-dashboard.moeco.io/api/auth" -H  "accept: application/json" -H  "authorization: Bearer 1dbb71a55488a16f60608ffece8777d8"
 ```
 
 ### Request
 
-GET `https://demo-dashboard.moeco.ninja/api/auth`
+GET `https://demo-dashboard.moeco.io/api/auth`
 
 ### Response
 
@@ -152,12 +152,12 @@ Return packages with information about alerts, devices and transactions.
 > Example of a request:
 
 ```shell
-curl -X GET "https://demo-dashboard.moeco.ninja/api/package?__count=20&__offset=0&only_active=true" -H "accept: application/json" -H "authorization: bearer 1dbb71a55488a16f60608ffece8777d8"
+curl -X GET "https://demo-dashboard.moeco.io/api/package?__count=20&__offset=0&only_active=true" -H "accept: application/json" -H "authorization: bearer 1dbb71a55488a16f60608ffece8777d8"
 ```
 
 ### Request
 
-GET `https://demo-dashboard.moeco.io/api/package?____count=20&____offset=0&only_active=true`
+GET `https://demo-dashboard.moeco.io/api/package?__count=20&__offset=0&only_active=true`
 
 ### Request parameters
 
