@@ -7,9 +7,8 @@ language_tabs:
 toc_footers:
 
 includes:
-  - errors
   - masternodeapi
-  - logisticapi
+  - errors
 
 search: true
 ---
