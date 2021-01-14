@@ -6,7 +6,7 @@ Parameter | Type | Default | Required | Description
 --------- | ------- | ----------- | ---------- | ---------
 authorization | string | - | Yes | Authorization token
 
-## Alerts list
+## Get alerts list
 
 GET /api/alert
 
@@ -73,7 +73,7 @@ Parameter |Description
  created_at | Date and time when alert was created
  updated_at | Date and time when alert was updated
 
-## Creates alert
+## Create alert
 
 POST /api/alert
 
@@ -88,7 +88,7 @@ curl --request POST \
 
 ### Request
 
-POST **`https://demo-dashboard.moeco.io/api/alert?body`**
+POST `https://demo-dashboard.moeco.io/api/alert?body`
 
 > Body example
 
@@ -153,7 +153,7 @@ Parameter |Description
  updated_at | Date and time when alert was updated
 
 
-## Alert ID
+## Get alert by id
 
 GET /api/alert/{id}
 
@@ -232,7 +232,7 @@ curl --request DELETE \
 
 ### Request
 
-DELETE **`https://demo-dashboard.moeco.io//api/alert/{id}?id`**
+DELETE `https://demo-dashboard.moeco.io//api/alert/{id}?id`
 
 ### Request parameters
 
@@ -240,25 +240,7 @@ Parameter | Type | Default | Required | Description
 --------- | ------- | ----------- | ---------- | ---------
 id | integer | - | Yes | Alert ID
 
-
-### Response
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "data": [
-    "string"
-  ]
-
-}
-```
-
-Parameter |Description
---------- | -----------
-data | string (sensor data)
-
-## Creates alert
+## Change the alert
 
 PUT /api/alert/{id}
 
@@ -339,7 +321,7 @@ Parameter |Description
  updated_at | Date and time when alert was updated 
 
 
-## Countries suggestions
+## Get countries suggestions
 
 GET /api/alert/countries
 
@@ -376,7 +358,7 @@ string
 Parameter |Description
 --------- | -----------
 
-## Alert list event
+## Get events in alert
 
 GET /api/alert/event
 
@@ -475,9 +457,9 @@ alert_status | Alert status
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated 
 
-## Alert list event
+## Get event by ID
 
-GET ​/api​/alert​/event​/{id}
+GET /api/alert/event/{id}
 
 > Example of a request:
 
@@ -570,7 +552,7 @@ alert_status | Alert status
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated 
 
-## Last alert event
+## Get last event
 
 GET /api/alert/event/last
 
@@ -666,7 +648,7 @@ alert_status | Alert status
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated 
 
-## Alert notification list
+## Get notification about alert
 
 GET /api/alert/notification
 
@@ -687,7 +669,7 @@ GET `https://demo-dashboard.moeco.io/api/alert/notification?__order=&__count=20&
 
 Parameter | Type | Default | Required | Description
 --------- | ------- | ----------- | ---------- | ---------
-_order | string | - | No | Query order
+__order | string | - | No | Query order
 __count | integer | 20 | No | Necessary rows count
 __offset | integer | 0 | No | Offset
 term | string | - | No | Any query term
@@ -778,8 +760,7 @@ curl --request POST \
 
 ### Request
 
-POST **`https://demo-dashboard.moeco.io/api/alert/notification
-?body`**
+POST `https://demo-dashboard.moeco.io/api/alert/notification?body`
 
 > Body example
 
@@ -798,7 +779,6 @@ POST **`https://demo-dashboard.moeco.io/api/alert/notification
 Parameter | Type | Default | Required | Description
 --------- | ------- | ----------- | ---------- | ---------
 body | object | - | Alert description
-
 
 ### Response
 
@@ -840,7 +820,7 @@ body | object | - | Alert description
 
 Parameter |Description
 --------- | -----------
-id   | Alert event id
+id | Alert event id
 alert_id |  Alert ID
 package_id | Package ID
 message | Message 
@@ -853,7 +833,7 @@ updated_at | Date and time when event was updated
 
 Parameter |Description
 --------- | -----------
-id   | Alert event id
+id | Alert event id
 organization_id | Organization ID 
 user_id | User ID 
 name | Alert name
@@ -867,7 +847,7 @@ alert_status | Atert status (TBD)
 created_at | Date and time when alert was created
 updated_at | Date and time when alert was updated
 
-## Alert notification list 
+## Get notification by id 
 
 GET /api/alert/notification/{id}
 
@@ -888,7 +868,7 @@ GET `https://demo-dashboard.moeco.io/api/alert/notification/{id}?id`
 
 Parameter | Type | Default | Required | Description
 --------- | ------- | ----------- | ---------- | ---------
-id | integer | - | Yes | Alert ID
+id | integer | - | Yes | Notification ID
 
 ### Response
 
@@ -924,7 +904,8 @@ id | integer | - | Yes | Alert ID
         "updated_at": "2020-12-20"
       }
     }
-  ],
+  ]
+}
 ```
 
 Parameter |Description
@@ -956,7 +937,7 @@ alert_status | Alert status
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated 
 
-## Creates notification alert
+## Change notification
 
 PUT /api/alert/notification/{id}
 
@@ -988,8 +969,8 @@ PUT `https://demo-dashboard.moeco.io//api/alert/notification/{id}?id=&body=`
 
 Parameter | Type | Default | Required | Description
 --------- | ------- | ----------- | ---------- | ---------
-id | integer | - | Yes | Alert ID |
-body | object | - | No | Alert description
+id | integer | - | Yes | Notification ID |
+body | object | - | No | Notification description
 
 
 ### Response
@@ -1026,15 +1007,16 @@ body | object | - | No | Alert description
         "updated_at": "2020-12-20"
       }
     }
-  ],
+  ]
+}
 ```
 
 #### Data
 
 Parameter |Description
 --------- | -----------
-id   | Alert event id
-alert_id |  Alert ID
+id | Alert event id
+alert_id | Alert ID
 package_id | Package ID
 message | Message
 email_sent | Date when email sent 
@@ -1048,7 +1030,7 @@ updated_at | Date and time when event was updated
 
 Parameter | Description
 --------- | -----------
-id   | Alert ID
+id | Alert ID
 organization_id | Organization ID
 user_id | User ID 
 name | Name 
@@ -1062,7 +1044,7 @@ alert_status | Alert status
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated 
  
-## Alert list decoder
+## Activate the package
 
 GET /api/decoder/active_package
 
@@ -1077,7 +1059,7 @@ curl --request GET \
 
 ### Request
 
-GET `https://demo-dashboard.moeco.io/api/decoder/active_package?device_hash=&trx_time=``
+GET `https://demo-dashboard.moeco.io/api/decoder/active_package?device_hash=&trx_time=`
 
 ### Request parameters
 
@@ -1086,9 +1068,9 @@ Parameter | Type | Default | Required | Description
 device_hash | string | - | Yes | Device hash
 trx_time | string($date) | - | Yes | trx date
 
-## Alert ID
+## Get alerts status by organization_id
 
-GET   ​/api​/decoder​/alert​/{organization_id}
+GET /api/decoder/alert/{organization_id}
 
 > Example of a request:
 
@@ -1101,7 +1083,7 @@ curl --request GET \
 
 ### Request
 
-GET `https://demo-dashboard.moeco.io/api​/decoder​/alert/{organization_id}?organization_id`
+GET `https://demo-dashboard.moeco.io/api/decoder/alert/{organization_id}?organization_id`
 
 ### Request parameters
 
@@ -1151,7 +1133,7 @@ alert_status | Atert status (TBD)
 created_at | Date and time when alert was created
 updated_at | Date and time when alert was updated
 
-## Creates alert event
+## Create alert events
 
 POST /api/decoder/events
 
@@ -1166,7 +1148,7 @@ curl --request POST \
 
 ### Request
 
-POST **`https://demo-dashboard.moeco.io/api/decoder/events?body`**
+POST `https://demo-dashboard.moeco.io/api/decoder/events?body`
 
 > Body example
 
@@ -1210,7 +1192,8 @@ body | object | - | Alert description
       "created_at": "2020-12-20",
       "updated_at": "2020-12-20"
     }
-  ],
+  ]
+}
 ```
 
 Parameter |Description
@@ -1227,7 +1210,7 @@ trigger_params | Trigger params
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated
 
-## Creates alert event
+## Change alert event's
 
 PUT /api/decoder/events/{id}
 
@@ -1290,7 +1273,8 @@ body | object | - | No | Event description
       "created_at": "2020-12-20",
       "updated_at": "2020-12-20"
     }
-  ],
+  ]
+}
 ```
 
 Parameter |Description
@@ -1307,7 +1291,7 @@ trigger_params | Trigger params
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated
 
-## Alert list 
+## Get device info by hash
 
 GET /api/device/{hash}
 
@@ -1359,12 +1343,13 @@ hash | string | - | Yes | Device hash, or unique ID
         }
       ]
     }
-  ],
+  ]
+}
 ```
 
 Parameter |Description
 --------- | -----------
-hash | Hash (TBD)
+hash | Device hash
 manufacturer | Manufacturer 
 blockchain_uid | Blockchain UID
 battery_status | Battery status 
@@ -1384,7 +1369,7 @@ tag_data| Tag data
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated
 
-## Alert list 
+## Search the device 
 
 GET /api/device/search
 
@@ -1399,7 +1384,7 @@ curl --request GET \
 
 ### Request
 
-GET `https://demo-dashboard.moeco.io/api/device/search?hash=``
+GET `https://demo-dashboard.moeco.io/api/device/search?hash=`
 
 ### Request parameters
 
@@ -1436,17 +1421,22 @@ hash | string | - | Yes | Device hash, or unique ID
         }
       ]
     }
-  ],
+  ]
+}
 ```
+
+#### Data
 
 Parameter |Description
 --------- | -----------
-hash | Hash (TBD)
+hash | Device hash
 manufacturer | Manufacturer 
 blockchain_uid | Blockchain UID
 battery_status | Battery status 
 device_group_uid | Device group UID
 status | Status 
+
+#### Tags
 
 Parameter |Description
 --------- | -----------
@@ -1461,7 +1451,7 @@ tag_data | Tag data
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated
 
-## Alert list geoDevices
+## Get info about devices geolocation
 
 GET /api/geoDevices
 
@@ -1470,13 +1460,13 @@ GET /api/geoDevices
 ```shell
 curl --request GET \
   --url https://demo-dashboard.moeco.io/api/geoDevices \
-  --header 'authorization: e0265e2d-b702-490a-96a3-8ea596c4f0aa' \
+  --header 'authorization: e0265e2d-b702-490a-96a3-8ea596c4f0aa' 
   --header 'Content-Type: application/json' \
 ```
 
 ### Request
 
-GET `https://demo-dashboard.moeco.io/api/geoDevices?``
+GET `https://demo-dashboard.moeco.io/api/geoDevices?`
 
 ### Request parameters
 
@@ -1497,7 +1487,7 @@ Parameter | Type | Default | Required | Description
 Parameter |Description
 --------- | -----------
 
-## Alert list 
+## Get info about system
 
 GET /api/info
 
@@ -1512,7 +1502,7 @@ curl --request GET \
 
 ### Request
 
-GET `https://demo-dashboard.moeco.io/api/info?__order=&__count=20&__offset=&term=```
+GET `https://demo-dashboard.moeco.io/api/info?__order=&__count=20&__offset=&term=`
 
 ### Request parameters
 
@@ -1523,18 +1513,7 @@ __count | integer | 20 | No | Necessary rows count
 __offset | integer | 0 | No | Offset
 term | string | - | No | Any query term
 
-### Response
-
-> The above command returns JSON structured like this:
-
-```json
-string
-```
-
-Parameter |Description
---------- | -----------
-
-## Create list package
+## Get list of packages
 
 GET /api/package
 
@@ -1549,7 +1528,7 @@ curl --request GET \
 
 ### Request
 
-GET `https://demo-dashboard.moeco.io/api/package __order=&__count=20&__offset=&term=&__only_active=``
+GET `https://demo-dashboard.moeco.io/api/package __order=&__count=20&__offset=&term=&__only_active=`
 
 ### Request parameters
 
@@ -1647,7 +1626,7 @@ updated_at | Date and time when event was updated
 
 Parameter |Description
 --------- | -----------
-ID | ID
+ID | Device ID
 tag id| Tag ID
 tag_value | Tag value
 device_hash | Device hash
@@ -1684,7 +1663,7 @@ alert_status | Atert status (TBD)
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated
 
-## Creates alert package
+## Create package
 
 POST /api/package
 
@@ -1791,7 +1770,7 @@ tag id | Tag ID
 tag_value | Tag value
 package_id | Package ID 
 
-## Alert list package
+## Get package by id
 
 GET /api/package/{id}
 
@@ -1812,7 +1791,7 @@ GET `https://demo-dashboard.moeco.io/api/package/{id}?id`
 
 Parameter | Type | Default | Required | Description
 --------- | ------- | ----------- | ---------- | ---------
-id | integer | - | Yes | Alert ID
+id | integer | - | Yes | Package ID
 
 ### Response
 
@@ -1936,7 +1915,7 @@ alert_status | Atert status (TBD)
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated
 
-## Creates alerts package
+## Change data in some package
 
 PUT /api/package/{id}
 
@@ -1966,8 +1945,8 @@ PUT `https://demo-dashboard.moeco.io/api/package/{id}?id=&body=`
 
 Parameter | Type | Default | Required | Description
 --------- | ------- | ----------- | ---------- | ---------
-id | integer | - | Yes | Alert ID |
-body | object | - | No | Alert description
+status | integer | - | No | Package statuus ID |
+destination | string | - | No | Package description
 
 
 ### Response
@@ -1994,7 +1973,7 @@ body | object | - | No | Alert description
 
 Parameter |Description
 --------- | -----------
-id | Alert ID
+id | Package ID
 organization_id | Organization ID
 user_id | User ID 
 device_hash | Device hash
@@ -2005,7 +1984,7 @@ destination | Destination
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated 
 
-## Alert list package
+## Get charts from some package by id
 
 GET /api/package/{id}/charts
 
@@ -2020,7 +1999,7 @@ curl --request GET \
 
 ### Request
 
-GET `https://demo-dashboard.moeco.io/api/package/{id}/charts?__id=&__samples=1&__start_date=&__stop_date=``
+GET `https://demo-dashboard.moeco.io/api/package/{id}/charts?__id=&__samples=1&__start_date=&__stop_date=`
 
 ### Request parameters
 
@@ -2046,7 +2025,7 @@ Parameter |Description
 --------- | -----------
 
 
-## Alert list package
+## Get track info from some package by id
 
 GET /api/package/{id}/track
 
@@ -2061,7 +2040,7 @@ curl --request GET \
 
 ### Request
 
-GET `https://demo-dashboard.moeco.io/api/package/{id}/track?__id=&__distance=100&__start_date=&__stop_date=``
+GET `https://demo-dashboard.moeco.io/api/package/{id}/track?__id=&__distance=100&__start_date=&__stop_date=`
 
 ### Request parameters
 
@@ -2072,7 +2051,7 @@ __distance | integer | 100 | No | Min distance in meters
 __start_date | string($date) | - | No | Start date
 __stop_date | string($date) | 0 | No | Start date
 
-## Alert list package
+## Get transactions from some package by id
 
 GET /api/package/{id}/transactions
 
@@ -2087,18 +2066,19 @@ curl --request GET \
 
 ### Request
 
-GET `https://demo-dashboard.moeco.io/api/package/{id}/transactions?__order=&__count=20&__offset=&term=```
+GET `https://demo-dashboard.moeco.io/api/package/{id}/transactions?__order=&__count=20&__offset=&term=`
 
 ### Request parameters
 
 Parameter | Type | Default | Required | Description
 --------- | ------- | ----------- | ---------- | ---------
+id | integer | - | Yes | Package ID
 __order | string | - | No | Query order
 __count | integer | 20 | No | Necessary rows count
 __offset | integer | 0 | No | Offset
 __term | string | - | No | Any query term
 
-## Create list package
+## Get package statuses
 
 GET /api/package/statuses
 
@@ -2113,7 +2093,7 @@ curl --request GET \
 
 ### Request
 
-GET `https://demo-dashboard.moeco.io/api/package/statuses``
+GET `https://demo-dashboard.moeco.io/api/package/statuses`
 
 ### Request parameters
 
@@ -2154,7 +2134,7 @@ Parameter | Type | Default | Required | Description
 Parameter |Description
 --------- | -----------
 
-## Creates alert package tags
+## Change tags for package
 
 PUT /api/package/tags
 
@@ -2184,7 +2164,8 @@ PUT `https://demo-dashboard.moeco.io/api/package/tags?body=`
 
 Parameter | Type | Default | Required | Description
 --------- | ------- | ----------- | ---------- | ---------
-body | object | - | No | Alert description
+deviceHash | string | - | Yes | Device hash
+id | integer | - | Yes | Tag ID
 
 
 ### Response
@@ -2216,7 +2197,7 @@ package_id | Package ID
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated
 
-## Delete alert package tags
+## Delete tags from package
 
 DELETE /api/package/tags/{id}
 
@@ -2231,74 +2212,15 @@ curl --request DELETE \
 
 ### Request
 
-DELETE **`https://demo-dashboard.moeco.io/api/package/tags/{id}?id`**
+DELETE `https://demo-dashboard.moeco.io/api/package/tags/{id}?id`
 
 ### Request parameters
 
 Parameter | Type | Default | Required | Description
 --------- | ------- | ----------- | ---------- | ---------
-id | integer | - | Yes | Alert ID
+id | integer | - | Yes | Tag ID
 
-## Alert list trx_package
-
-GET /api/package/trx_package
-
-> Example of a request:
-
-```shell
-curl --request GET \
-  --url https://demo-dashboard.moeco.io/api/package/trx_package\
-  --header 'authorization: e0265e2d-b702-490a-96a3-8ea596c4f0aa' \
-  --header 'Content-Type: application/json' \
-```
-
-### Request
-
-GET `https://demo-dashboard.moeco.io/api/package/trx_package?__timestamp=&__device_hash=``
-
-### Request parameters
-
-Parameter | Type | Default | Required | Description
---------- | ------- | ----------- | ---------- | ---------
-timestamp | string($date) | - | Yes | Trx timestamp
-device_hash | string | - | Yes | Device hash
-
-### Response
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "data": [
-    {
-      "id": 0,
-      "organization_id": 0,
-      "user_id": 0,
-      "device_hash": "string",
-      "device_uid": "string",
-      "device_group_uid": "string",
-      "status": 0,
-      "destination": "string",
-      "created_at": "2020-12-20",
-      "updated_at": "2020-12-20"
-    }
-  ],
-```
-
-Parameter |Description
---------- | -----------
-id | Alert ID
-organization_id | Organization ID
-user_id | User ID 
-device_hash | Device hash
-device_uid | Device UID 
-device_group_uid | Device group UID
-status | Status 
-destination | Destination
-created_at | Date and time when event was created
-updated_at | Date and time when event was updated 
-
-## Alert list 
+## Get region list 
 
 GET /api/region
 
@@ -2313,7 +2235,7 @@ curl --request GET \
 
 ### Request
 
-GET `https://demo-dashboard.moeco.io/api/region?__order=&__count=20&__offset=&term=``
+GET `https://demo-dashboard.moeco.io/api/region?__order=&__count=20&__offset=&term=`
 
 ### Request parameters
 
@@ -2359,7 +2281,7 @@ value | Region name
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated 
 
-## Creates alert region
+## Creates new region
 
 POST /api/region
 
@@ -2374,7 +2296,7 @@ curl --request POST \
 
 ### Request
 
-POST **`https://demo-dashboard.moeco.io/api/region?body`**
+POST `https://demo-dashboard.moeco.io/api/region?body`
 
 > Body example
 
@@ -2419,7 +2341,8 @@ body | object | - | region description
       "created_at": "2020-12-20",
       "updated_at": "2020-12-20"
     }
-  ],
+  ]
+}
 ```
 
 Parameter |Description
@@ -2433,7 +2356,7 @@ value | Region name
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated 
 
-## Alert list region
+## Get infoabout region by ID
 
 GET /api/region/{id}
 
@@ -2448,13 +2371,13 @@ curl --request GET \
 
 ### Request
 
-GET `https://demo-dashboard.moeco.io/api/region/{id}?id``
+GET `https://demo-dashboard.moeco.io/api/region/{id}?id`
 
 ### Request parameters
 
 Parameter | Type | Default | Required | Description
 --------- | ------- | ----------- | ---------- | ---------
-id | integer | - | Yes | region ID
+id | integer | - | Yes | Region ID
 
 ### Response
 
@@ -2477,7 +2400,8 @@ id | integer | - | Yes | region ID
       "created_at": "2020-12-20",
       "updated_at": "2020-12-20"
     }
-  ],
+  ]
+}
 ```
 
 Parameter |Description
@@ -2491,7 +2415,7 @@ value | Region name
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated 
 
-## Delete alert region
+## Delete region
 
 DELETE /api/region/{id}
 
@@ -2506,7 +2430,7 @@ curl --request DELETE \
 
 ### Request
 
-DELETE **`https://demo-dashboard.moeco.io/api/region/{id}?id`**
+DELETE `https://demo-dashboard.moeco.io/api/region/{id}?id`
 
 ### Request parameters
 
@@ -2514,7 +2438,7 @@ Parameter | Type | Default | Required | Description
 --------- | ------- | ----------- | ---------- | ---------
 id | integer | - | Yes | region ID 
 
-## Creates alert region
+## Change info about region 
 
 PUT /api/region/{id}
 
@@ -2549,8 +2473,8 @@ PUT `https://demo-dashboard.moeco.io/api/region/{id}?id=&body=`
 
 Parameter | Type | Default | Required | Description
 --------- | ------- | ----------- | ---------- | ---------
-id | integer | - | Yes | region ID |
-body | object | - | No | Alert description
+id | integer | - | Yes | Region ID |
+body | object | - | No | Region description
 
 
 ### Response
@@ -2587,7 +2511,7 @@ value | Region name
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated 
 
-## Alert list  search
+## Search data in the base
 
 GET /api/search
 
@@ -2602,7 +2526,7 @@ curl --request GET \
 
 ### Request
 
-GET `https://demo-dashboard.moeco.io/api/search?__order=&__count=20&__offset=&term=``
+GET `https://demo-dashboard.moeco.io/api/search?__order=&__count=20&__offset=&term=`
 
 ### Request parameters
 
@@ -2613,7 +2537,7 @@ __count | integer | 20 | No | Necessary rows count
 __offset | integer | 0 | No | Offset
 __term | string | - | No | Any query term
 
-## Alert list tag
+## Get tags list
 
 GET /api/tag
 
@@ -2628,7 +2552,7 @@ curl --request GET \
 
 ### Request
 
-GET `https://demo-dashboard.moeco.io/api/tag?__order=&__count=20&__offset=&term=``
+GET `https://demo-dashboard.moeco.io/api/tag?__order=&__count=20&__offset=&term=`
 
 ### Request parameters
 
@@ -2663,7 +2587,7 @@ __term | string | - | No | Any query term
 
 Parameter |Description
 --------- | -----------
-ID | tag ID
+ID | Tag ID
 organization_id | Organization ID
 device_group_uid | Device group UID
 tag_name | Tag name
@@ -2674,7 +2598,7 @@ tag_data | Tag data
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated
 
-## Creates alert tag
+## Create tag
 
 POST /api/tag
 
@@ -2689,7 +2613,7 @@ curl --request POST \
 
 ### Request
 
-POST **`https://demo-dashboard.moeco.io/api/tag?body`**
+POST `https://demo-dashboard.moeco.io/api/tag?body`
 
 > Body example
 
@@ -2735,7 +2659,7 @@ body | object | - | Alert description
 
 Parameter |Description
 --------- | -----------
-ID | tag ID
+ID | Tag ID
 organization_id | Organization ID
 device_group_uid | Device group UID
 tag_name | Tag name
@@ -2746,7 +2670,7 @@ tag_data | Tag data
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated
 
-## Alert list tag
+## Get tag by ID
 
 GET /api/tag/{id}
 
@@ -2761,13 +2685,13 @@ curl --request GET \
 
 ### Request
 
-GET `https://demo-dashboard.moeco.io/api/tag/{id}?id``
+GET `https://demo-dashboard.moeco.io/api/tag/{id}?id`
 
 ### Request parameters
 
 Parameter | Type | Default | Required | Description
 --------- | ------- | ----------- | ---------- | ---------
-id | integer | - | Yes | tag ID
+id | integer | - | Yes | Tag ID
 
 ### Response
 
@@ -2793,7 +2717,7 @@ id | integer | - | Yes | tag ID
 
 Parameter |Description
 --------- | -----------
-ID | tag ID
+ID | Tag ID
 organization_id | Organization ID
 device_group_uid | Device group UID
 tag_name | Tag name
@@ -2804,7 +2728,7 @@ tag_data | Tag data
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated
 
-## Delete alert tag
+## Delete tag by ID
 
 DELETE /api/tag/{id}
 
@@ -2819,15 +2743,15 @@ curl --request DELETE \
 
 ### Request
 
-DELETE **`https://demo-dashboard.moeco.io/api/tag/{id}?id`**
+DELETE `https://demo-dashboard.moeco.io/api/tag/{id}?id`
 
 ### Request parameters
 
 Parameter | Type | Default | Required | Description
 --------- | ------- | ----------- | ---------- | ---------
-id | integer | - | Yes | tag ID
+id | integer | - | Yes | Tag ID
 
-## Creates alert
+## Change the tag
 
 PUT /api/tag/{id}
 
@@ -2861,7 +2785,7 @@ PUT `https://demo-dashboard.moeco.io/api/tag/{id}?id=&body=`
 
 Parameter | Type | Default | Required | Description
 --------- | ------- | ----------- | ---------- | ---------
-id | integer | - | Yes | tag ID |
+id | integer | - | Yes | Tag ID |
 body | object | - | No | Alert description
 
 
@@ -2884,12 +2808,13 @@ body | object | - | No | Alert description
       "created_at": "2020-12-20",
       "updated_at": "2020-12-20"
     }
-  ],
+  ]
+}
 ```
 
 Parameter |Description
 --------- | -----------
-ID | tag ID
+ID | Tag ID
 organization_id | Organization ID
 device_group_uid | Device group UID
 tag_name | Tag name
@@ -2915,7 +2840,7 @@ curl --request GET \
 
 ### Request
 
-GET `https://demo-dashboard.moeco.io/api/transactions?__order=&__count=20&__offset=&term=``
+GET `https://demo-dashboard.moeco.io/api/transactions?__order=&__count=20&__offset=&term=`
 
 ### Request parameters
 
@@ -2941,7 +2866,7 @@ curl --request GET \
 
 ### Request
 
-GET `https://demo-dashboard.moeco.io/api/transactions/{device_hash}?__device_hash=&__order=&__count=20&__offset=&term=``
+GET `https://demo-dashboard.moeco.io/api/transactions/{device_hash}?__device_hash=&__order=&__count=20&__offset=&term=`
 
 ### Request parameters
 
