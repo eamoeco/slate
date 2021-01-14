@@ -1,4 +1,4 @@
-**# Logistic API v.0.1**
+# Logistic API v.0.1
 
 ## Main request parameters
 
