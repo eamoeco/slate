@@ -1,0 +1,316 @@
+﻿# Masternode API 
+
+## Alerts list
+
+POST /api/gate/auth
+
+> Example of a request:
+
+```shell
+curl --request POST \
+  --url https://demo-dashboard.moeco.io/api/gate/auth \
+  --header 'authorization: e0265e2d-b702-490a-96a3-8ea596c4f0aa' \
+  --header 'Content-Type: application/json' \
+```
+
+### Request
+
+POST `https://demo-dashboard.moeco.io/api/gate/auth 
+?__body=`
+
+> Body example
+
+```json
+{
+  "api_key": "43e83415d71163ab",
+  "name": "Test name",
+  "pub_key": "Tksdh487t49387tuuiufi"
+}
+```
+### Request parameters
+
+Parameter | Type | Default | Required | Description
+--------- | ------- | ----------- | ---------- | ---------
+__body | object | - | No | Example Value
+
+### Response
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": 42,
+      "name": "My gateway",
+      "organization_id": 1,
+      "user_id": 1,
+      "group_uid": "5b15b43c1e01dc3ec51d422ce82a4e75",
+      "blockchain_uid": "5b15b43c1e01dc3ec51d422ce82a4e75",
+      "pub_key": "--pub-key--",
+      "latitude": 1,
+      "longitude": 1,
+      "status": 1,
+      "updated_at": "2019-02-12T16:13:30.239Z",
+      "created_at": "2018-12-17T09:13:34.299Z",
+      "blockchain_id": "43e83415d71163ab",
+      "group_id": "43e83415d71163ab"
+}
+```
+
+Parameter |Description
+--------- | -----------
+ id | Alert ID
+ name | Alert name
+ organization_id | Organization ID 
+ user_id | User ID
+ group_uid | Group UID 
+ blockchain_uid | Blockchain UID
+ pub_key | Pub Key 
+ latitude| Latitude
+ longitude | Longitude 
+ status | status (TBD)
+ updated_at | Date and time when alert was updated
+ created_at | Date and time when alert was created
+ blockchain_id | Blockchain ID
+ group_id | Group ID 
+
+
+## Alert device
+
+GET /api/gate/device
+
+> Example of a request:
+
+```shell
+curl --request GET \
+  --url https://demo-dashboard.moeco.io/api/gate/device \
+  --header 'authorization: e0265e2d-b702-490a-96a3-8ea596c4f0aa' \
+  --header 'Content-Type: application/json' \
+```
+
+### Request
+
+GET `https://demo-dashboard.moeco.io/api/gate/device`
+
+### Request parameters
+
+Parameter | Type | Default | Required | Description
+--------- | ------- | ----------- | ---------- | ---------
+no | - | - | - | -
+
+
+### Response
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "devices": [
+        {
+          "id": 42,
+          "hash": "asdqwe",
+          "organization_id": "Организация",
+          "user_id": 1,
+          "manufacturer": "asdqwe",
+          "blockchain_uid": "asdqwe",
+          "battery_status": 50,
+          "device_group_uid": "asdqwe",
+          "status": 1,
+          "cert": "--pub-key--",
+          "updated_at": "2019-02-12T16:13:30.239Z",
+          "created_at": "2018-12-17T09:13:34.299Z"
+        }
+      ],
+      "device_groups": [
+        {
+          "id": 42,
+          "blockchain_uid": "5b15b43c1e01dc3ec51d422ce82a4e75",
+          "name": "My group",
+          "group_type": 123123123,
+          "uplink_lifetime": 3000,
+          "downlink_lifetime": 3000,
+          "trx_timeout": 3000,
+          "services": [
+            "string"
+          ],
+          "status": 1,
+          "organization_id": 1,
+          "user_id": 1,
+          "tarif_str": "ANY_TARIF_NAME",
+          "cert": "string",
+          "updated_at": "2019-02-12T16:13:30.239Z",
+          "created_at": "2018-12-17T09:13:34.299Z"
+        }
+	 ]
+ }
+```
+
+ #### Device
+
+Parameter |Description
+--------- | -----------
+ id | Alert ID
+ hash | Hash
+ organization_id | Organization ID
+ user_id | User ID
+ manufacturer | Manufacturer name
+ blockchain_uid | Blockchain UID
+ battery_status | Battery status
+ device_group_uid | Device group UID
+ device_group_uid sensor_name | Sensor name
+ status | Status
+ cert | Cert 
+ updated_at | Date and time when alert was updated
+ created_at | Date and time when alert was created
+
+
+#### Device_groups
+
+Parameter |Description
+--------- | -----------
+ id | Alert ID
+ blockchain_uid | Blockchain UID
+ name | Name of group
+ group_type | Group type ID
+ uplink_lifetime | Uplink lifetimehash 
+ downlink_lifetime | Downlink lifetime
+ trx_timeout | TRX timeout
+ services | Services 
+ string | String 
+ status | Status
+ organization_id | Organization ID 
+ user_id | User ID cert | Cert 
+ tarif_str | Any Tarif Name 
+ cert | Cert
+ updated_at | Date and time when alert was updated
+ created_at | Date and time when alert was created
+ 
+## Alert downlink
+
+POST /api/gate/downlink
+
+> Example of a request:
+
+```shell
+curl --request POST \
+  --url https://demo-dashboard.moeco.io/api/gate/downlink \
+  --header 'authorization: e0265e2d-b702-490a-96a3-8ea596c4f0aa' \
+  --header 'Content-Type: application/json' \
+```
+
+### Request
+
+GET `https://demo-dashboard.moeco.io/api/gate/downlink? __authorization=&__body=`
+
+> Body example
+
+```json
+{
+  "transactions": [
+    {
+      "device_hash": "aa:bb:cc:dd:ee",
+      "payload": "{\"data\":\"mydata\"}",
+      "blockchain_id": "string",
+      "timestamp": "2020-12-02T06:35:56.237Z"
+    }
+  ]
+}
+```
+
+### Request parameters
+
+Parameter | Type | Default | Required | Description
+--------- | ------- | ----------- | ---------- | ---------
+authorization | string | - | Yes | Authorization token
+body|object | - | No | Example Value
+
+### Response
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    "string"
+  ]
+}
+```
+
+Parameter |Description
+--------- | -----------
+ Data | String (sensor data)
+
+## Alert downlink statuses
+
+POST /api/gate/downlink/statuses
+
+> Example of a request:
+
+```shell
+curl --request POST \
+  --url https://demo-dashboard.moeco.io/api/gate/downlink/statuses \
+  --header 'authorization: e0265e2d-b702-490a-96a3-8ea596c4f0aa' \
+  --header 'Content-Type: application/json' \
+```
+
+### Request
+
+DELETE `https://demodashboard.moeco.io//api/gate/downlink/statuses?__body=`
+
+> Body example
+
+```json
+{
+  "transactions": [
+    "9d8e66b25cbb6fc50623a846ac4c4c80"
+  ]
+}
+```
+
+### Request parameters
+
+Parameter | Type | Default | Required | Description
+--------- | ------- | ----------- | ---------- | ---------
+body | object | - | No |  Example Value
+
+### Response
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    "string"
+  ]
+}
+```
+
+Parameter |Description
+--------- | -----------
+data | string (sensor data)
+
+## Settings
+
+GET /api/gate/settings
+
+> Example of a request:
+
+```shell
+curl --request GET \
+  --url https://demo-dashboard.moeco.io/api/gate/settings \
+  --header 'authorization: e0265e2d-b702-490a-96a3-8ea596c4f0aa' \
+  --header 'Content-Type: application/json' \
+```
+
+### Request
+
+PUT `https://demo-dashboard.moeco.io//api/gate/settings?__api_key=`
+
+### Request parameters
+
+Parameter | Type | Default | Required | Description
+--------- | ------- | ----------- | ---------- | ---------
+api_key | string | - | No | Gate group api_key |
