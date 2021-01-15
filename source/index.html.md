@@ -14,6 +14,8 @@ includes:
 search: true
 ---
 
+# Moeco API
+
 The API is built on the basis of the HTTP protocol with the exchange of data in the JSON format. Communication between the server and the client is carried out through the interface end-points.
 
 Each server response to a client request is represented by a set of HTTP status (status code) and a set of data of a specific structure:
