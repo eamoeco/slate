@@ -175,8 +175,7 @@ Field |Description
  alert_events | The list of alerts for this shipments
  transactions | The transaction data
  
- 
-## Shipments historical transactions by shipment ID
+## Search device in the base
 
 GET /api/device/search
 
@@ -383,7 +382,7 @@ Field |Description
  source.alerts | The list of alerts
  source.alertCount | The number of alerts
 
-## Alerts list
+## Create new alert
 
 POST /api/gate/auth
 
@@ -410,6 +409,7 @@ POST `https://demo-dashboard.moeco.io/api/gate/auth
   "pub_key": "Tksdh487t49387tuuiufi"
 }
 ```
+
 ### Request parameters
 
 Parameter | Type | Default | Required | Description
@@ -452,14 +452,14 @@ Parameter |Description
  pub_key | Pub Key 
  latitude| Latitude
  longitude | Longitude 
- status | status (TBD)
+ status | Status (TBD)
  updated_at | Date and time when alert was updated
  created_at | Date and time when alert was created
  blockchain_id | Blockchain ID
  group_id | Group ID 
 
 
-## Alert device
+## Get device list and device group
 
 GET /api/gate/device
 
@@ -531,30 +531,29 @@ no | - | - | - | -
  }
 ```
 
- #### Device
+**Device**
 
 Parameter |Description
 --------- | -----------
- id | Alert ID
- hash | Hash
+ id | Device ID
+ hash | Device Hash
  organization_id | Organization ID
  user_id | User ID
  manufacturer | Manufacturer name
  blockchain_uid | Blockchain UID
  battery_status | Battery status
  device_group_uid | Device group UID
- device_group_uid sensor_name | Sensor name
+ sensor_name | Sensor name
  status | Status
  cert | Cert 
  updated_at | Date and time when alert was updated
  created_at | Date and time when alert was created
 
-
-#### Device_groups
+**Device groups**
 
 Parameter |Description
 --------- | -----------
- id | Alert ID
+ id | Device groups ID
  blockchain_uid | Blockchain UID
  name | Name of group
  group_type | Group type ID
@@ -562,7 +561,6 @@ Parameter |Description
  downlink_lifetime | Downlink lifetime
  trx_timeout | TRX timeout
  services | Services 
- string | String 
  status | Status
  organization_id | Organization ID 
  user_id | User ID cert | Cert 
@@ -571,7 +569,7 @@ Parameter |Description
  updated_at | Date and time when alert was updated
  created_at | Date and time when alert was created
  
-## Alert downlink
+## Send downlink to device
 
 POST /api/gate/downlink
 
@@ -586,7 +584,7 @@ curl --request POST \
 
 ### Request
 
-GET `https://demo-dashboard.moeco.io/api/gate/downlink? __authorization=&__body=`
+POST `https://demo-dashboard.moeco.io/api/gate/downlink? __authorization=&__body=`
 
 > Body example
 
@@ -626,7 +624,7 @@ Parameter |Description
 --------- | -----------
  Data | String (sensor data)
 
-## Alert downlink statuses
+## Downlink statuses
 
 POST /api/gate/downlink/statuses
 
@@ -641,7 +639,7 @@ curl --request POST \
 
 ### Request
 
-DELETE `https://demodashboard.moeco.io//api/gate/downlink/statuses?__body=`
+POST `https://demodashboard.moeco.io/api/gate/downlink/statuses?__body=`
 
 > Body example
 
@@ -690,7 +688,7 @@ curl --request GET \
 
 ### Request
 
-PUT `https://demo-dashboard.moeco.io//api/gate/settings?__api_key=`
+GET `https://demo-dashboard.moeco.io/api/gate/settings?__api_key=`
 
 ### Request parameters
 
