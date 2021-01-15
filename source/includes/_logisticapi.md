@@ -199,6 +199,8 @@ id | integer | - | Yes | Alert ID
       "created_at": "2020-12-20",
       "updated_at": "2020-12-20"
     }
+  ]
+}
 ```
 
 Parameter |Description
@@ -302,6 +304,7 @@ body | object | - | No | Alert description
       "updated_at": "2020-12-20"
     }
   ]
+}
 ```
 
 Parameter |Description
@@ -419,7 +422,8 @@ term | string | - | No | Any query term
         "updated_at": "2020-12-20"
       }
     }
-  ],
+  ]
+}
 ```
 
 #### Data
@@ -515,7 +519,8 @@ id | integer | - | Yes | Alert ID
         "updated_at": "2020-12-20"
       }
     }
-  ],
+  ]
+}
 ```
 
 #### Data
@@ -611,7 +616,8 @@ device_hash | string | - | Yes | SRC alert device hash
         "updated_at": "2020-12-20"
       }
     }
-  ],
+  ]
+}
 ```
 
 #### Data
@@ -708,7 +714,8 @@ term | string | - | No | Any query term
         "updated_at": "2020-12-20"
       }
     }
-  ],
+  ]
+}
 ```
 
 #### Data
@@ -815,8 +822,11 @@ body | object | - | Alert description
         "updated_at": "2020-12-20"
       }
     }
-  ],
+  ]
+}
 ```
+
+**Data**
 
 Parameter |Description
 --------- | -----------
@@ -830,6 +840,8 @@ viewed_by_app | TBD
 status | Status
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated
+
+**Alert**
 
 Parameter |Description
 --------- | -----------
@@ -908,6 +920,8 @@ id | integer | - | Yes | Notification ID
 }
 ```
 
+**Data**
+
 Parameter |Description
 --------- | -----------
 id   | ID
@@ -920,6 +934,8 @@ viewed_by_app | TBD
 status | Status
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated
+
+**Alert**
 
 Parameter |Description
 --------- | -----------
@@ -1011,7 +1027,7 @@ body | object | - | No | Notification description
 }
 ```
 
-#### Data
+**Data**
 
 Parameter |Description
 --------- | -----------
@@ -1026,7 +1042,7 @@ status | Status
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated 
 
-#### Alert
+**Alert**
 
 Parameter | Description
 --------- | -----------
@@ -1091,7 +1107,6 @@ Parameter | Type | Default | Required | Description
 --------- | ------- | ----------- | ---------- | ---------
 organization_id | integer | - | Yes | organization_id
 
-
 ### Response
 
 > The above command returns JSON structured like this:
@@ -1114,7 +1129,8 @@ organization_id | integer | - | Yes | organization_id
       "created_at": "2020-12-20",
       "updated_at": "2020-12-20"
     }
-  ],
+  ]
+}
 ```
 
 Parameter |Description
@@ -1170,7 +1186,6 @@ POST `https://demo-dashboard.moeco.io/api/decoder/events?body`
 Parameter | Type | Default | Required | Description
 --------- | ------- | ----------- | ---------- | ---------
 body | object | - | Alert description
-
 
 ### Response
 
@@ -1306,7 +1321,7 @@ curl --request GET \
 
 ### Request
 
-GET `https://demo-dashboard.moeco.io/api/device/{hash}?hash=``
+GET `https://demo-dashboard.moeco.io/api/device/{hash}?hash=`
 
 ### Request parameters
 
@@ -1347,6 +1362,8 @@ hash | string | - | Yes | Device hash, or unique ID
 }
 ```
 
+**Data** 
+
 Parameter |Description
 --------- | -----------
 hash | Device hash
@@ -1355,6 +1372,8 @@ blockchain_uid | Blockchain UID
 battery_status | Battery status 
 device_group_uid | Device group UID
 status | Status 
+
+**Tags** 
 
 Parameter |Description
 --------- | -----------
@@ -1369,7 +1388,7 @@ tag_data| Tag data
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated
 
-## Search the device 
+## Search a device 
 
 GET /api/device/search
 
@@ -1425,7 +1444,7 @@ hash | string | - | Yes | Device hash, or unique ID
 }
 ```
 
-#### Data
+**Data**
 
 Parameter |Description
 --------- | -----------
@@ -1436,7 +1455,7 @@ battery_status | Battery status
 device_group_uid | Device group UID
 status | Status 
 
-#### Tags
+**Tags**
 
 Parameter |Description
 --------- | -----------
@@ -1481,7 +1500,8 @@ Parameter | Type | Default | Required | Description
 {
   "data": [
     "string"
-  ],
+  ]
+}
 ```
 
 Parameter |Description
@@ -1604,10 +1624,11 @@ only_active | boolean | - | No | Show only active packages
         "string"
       ]
     }
-  ],,
+  ]
+}
 ```
 
-#### Data
+**Data**
 
 Parameter |Description
 --------- | -----------
@@ -1622,7 +1643,7 @@ destination | Destination (TBD)
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated
 
-#### Device tags
+**Device tags**
 
 Parameter |Description
 --------- | -----------
@@ -1634,7 +1655,7 @@ package_id | Package ID
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated
 
-#### Alert events
+**Alert events**
 
 Parameter |Description
 --------- | -----------
@@ -1746,7 +1767,8 @@ body | object | - | Alert description
         }
       ]
     }
-  ],
+  ]
+}
 ```
 
 Parameter |Description
@@ -1856,10 +1878,11 @@ id | integer | - | Yes | Package ID
         "string"
       ]
     }
-  ],
+  ]
+}
 ```
 
-#### Data
+**Data**
 
 Parameter |Description
 --------- | -----------
@@ -1874,7 +1897,7 @@ destination | Destination
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated 
 
-#### Device tags
+**Device tags**
 
 Parameter |Description
 --------- | -----------
@@ -1886,7 +1909,7 @@ package_id | Package ID
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated
 
-#### Alert events
+**Alert events**
 
 Parameter |Description
 --------- | -----------
@@ -1968,7 +1991,8 @@ destination | string | - | No | Package description
       "created_at": "2020-12-20",
       "updated_at": "2020-12-20"
     }
-  ],
+  ]
+}
 ```
 
 Parameter |Description
@@ -2128,7 +2152,8 @@ Parameter | Type | Default | Required | Description
         ...
         "6": {
         ...
-  ],
+  ]
+}
 ```
 
 Parameter |Description
@@ -2167,7 +2192,6 @@ Parameter | Type | Default | Required | Description
 deviceHash | string | - | Yes | Device hash
 id | integer | - | Yes | Tag ID
 
-
 ### Response
 
 > The above command returns JSON structured like this:
@@ -2184,7 +2208,8 @@ id | integer | - | Yes | Tag ID
       "created_at": "2020-12-20",
       "updated_at": "2020-12-20"
     }
-  ],
+  ]
+}
 ```
 
 Parameter |Description
@@ -2267,7 +2292,8 @@ term | string | - | No | Any query term
       "created_at": "2020-12-20",
       "updated_at": "2020-12-20"
     }
-  ],
+  ]
+}
 ```
 
 Parameter |Description
@@ -2356,7 +2382,7 @@ value | Region name
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated 
 
-## Get infoabout region by ID
+## Get info about region by ID
 
 GET /api/region/{id}
 
@@ -2476,7 +2502,6 @@ Parameter | Type | Default | Required | Description
 id | integer | - | Yes | Region ID |
 body | object | - | No | Region description
 
-
 ### Response
 
 > The above command returns JSON structured like this:
@@ -2497,7 +2522,8 @@ body | object | - | No | Region description
       "created_at": "2020-12-20",
       "updated_at": "2020-12-20"
     }
-  ],
+  ]
+}
 ```
 
 Parameter |Description
@@ -2582,7 +2608,8 @@ __term | string | - | No | Any query term
       "created_at": "2020-12-20",
       "updated_at": "2020-12-20"
     }
-  ],
+  ]
+}
 ```
 
 Parameter |Description
@@ -2654,7 +2681,8 @@ body | object | - | Alert description
       "created_at": "2020-12-20",
       "updated_at": "2020-12-20"
     }
-  ],
+  ]
+}
 ```
 
 Parameter |Description
@@ -2712,7 +2740,8 @@ id | integer | - | Yes | Tag ID
       "created_at": "2020-12-20",
       "updated_at": "2020-12-20"
     }
-  ],
+  ]
+}
 ```
 
 Parameter |Description
@@ -2751,7 +2780,7 @@ Parameter | Type | Default | Required | Description
 --------- | ------- | ----------- | ---------- | ---------
 id | integer | - | Yes | Tag ID
 
-## Change the tag
+## Change a tag
 
 PUT /api/tag/{id}
 
@@ -2825,7 +2854,7 @@ tag_data | Tag data
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated
 
-## Alert list transactions
+## Get transactions list
 
 GET /api/transactions
 
@@ -2851,7 +2880,7 @@ __count | integer | 20 | No | Necessary rows count
 __offset | integer | 0 | No | Offset
 __term | string | - | No | Any query term
 
-## Alert list 
+## Get transactions by device hash 
 
 GET /api/transactions/{device_hash}
 
