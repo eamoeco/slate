@@ -8,12 +8,11 @@ toc_footers:
 
 includes:
   - masternodeapi
+  - logisticapi
   - errors
 
 search: true
 ---
-
-# Moeco API
 
 The API is built on the basis of the HTTP protocol with the exchange of data in the JSON format. Communication between the server and the client is carried out through the interface end-points.
 
