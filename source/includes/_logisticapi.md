@@ -426,7 +426,7 @@ term | string | - | No | Any query term
 }
 ```
 
-#### Data
+**Data**
 
 Parameter |Description
 --------- | -----------
@@ -443,7 +443,7 @@ trigger_params | Trigger params
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated 
 
-#### Alert
+**Alert**
 
 Parameter |Description
 --------- | -----------
@@ -523,7 +523,7 @@ id | integer | - | Yes | Alert ID
 }
 ```
 
-#### Data
+**Data**
 
 Parameter |Description
 --------- | -----------
@@ -539,7 +539,7 @@ trigger_params | Trigger params
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated
 
-#### Alert
+**Alert**
 
 Parameter |Description
 --------- | -----------
@@ -620,7 +620,7 @@ device_hash | string | - | Yes | SRC alert device hash
 }
 ```
 
-#### Data
+**Data**
 
 Parameter |Description
 --------- | -----------
@@ -636,7 +636,7 @@ trigger_params | Trigger params
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated
 
-#### Alert
+**Alert**
 
 Parameter |Description
 --------- | -----------
@@ -718,7 +718,7 @@ term | string | - | No | Any query term
 }
 ```
 
-#### Data
+**Data**
 
 Parameter |Description
 --------- | -----------
@@ -733,7 +733,7 @@ status | Status
 created_at | Date and time when event was created
 updated_at | Date and time when event was updated
 
-#### Alert
+**Alert**
 
 Parameter |Description
 --------- | -----------
